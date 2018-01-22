@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgModule } from '@angular/core';
-import { MatToolbarModule } from '@angular/material'; 
+import { MatToolbarModule, MatListModule } from '@angular/material'; 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 
@@ -20,7 +20,8 @@ import { MenuComponent } from './menu/menu.component';
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
