@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgModule } from '@angular/core';
-import { MatToolbarModule, MatListModule, MatGridListModule, MatLineModule, MatCardModule, MatButtonModule, MatIconModule } from '@angular/material'; 
+import { MatToolbarModule, MatListModule, MatGridListModule, MatLineModule, MatCardModule, MatButtonModule, 
+  MatIconModule, MatDialogModule, MatCheckboxModule, MatFormFieldModule, MatInputModule } from '@angular/material'; 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import 'hammerjs';
@@ -14,12 +15,15 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component'
+import { ContactComponent } from './contact/contact.component';
 
 import { DishService } from './services/dish.service';
-import { PromotionService } from './services/promotion.service'
+import { PromotionService } from './services/promotion.service';
+import { LeaderService } from './services/leader.service';
 
-import { AppRoutingModule } from './app-routing/app-routing.module'
+import { FormsModule } from '@angular/forms'
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module'
     FooterComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,11 +46,19 @@ import { AppRoutingModule } from './app-routing/app-routing.module'
     MatGridListModule,
     MatLineModule,
     MatCardModule,
+    MatIconModule,
     MatButtonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDialogModule,
+    FormsModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [ DishService,
-  PromotionService ],
+  PromotionService,
+  LeaderService ],
+  entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
