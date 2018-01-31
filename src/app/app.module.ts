@@ -3,7 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgModule } from '@angular/core';
 import { MatToolbarModule, MatListModule, MatGridListModule, MatLineModule, MatCardModule, MatButtonModule, 
-  MatIconModule, MatDialogModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatSlideToggleModule, MatSelectModule } from '@angular/material'; 
+  MatIconModule, MatDialogModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatSlideToggleModule,
+  MatSelectModule, MatProgressSpinnerModule } from '@angular/material'; 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import 'hammerjs';
@@ -58,7 +59,8 @@ import { ReactiveFormsModule } from '@angular/forms'
     MatInputModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
   providers: [ DishService,
   PromotionService,
