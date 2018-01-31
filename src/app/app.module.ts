@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgModule } from '@angular/core';
 import { MatToolbarModule, MatListModule, MatGridListModule, MatLineModule, MatCardModule, MatButtonModule, 
-  MatIconModule, MatDialogModule, MatCheckboxModule, MatFormFieldModule, MatInputModule } from '@angular/material'; 
+  MatIconModule, MatDialogModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatSlideToggleModule, MatSelectModule } from '@angular/material'; 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import 'hammerjs';
@@ -24,6 +24,8 @@ import { LeaderService } from './services/leader.service';
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms'
+
 
 @NgModule({
   declarations: [
@@ -53,7 +55,10 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     MatCheckboxModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule,
+    MatSlideToggleModule,
+    MatSelectModule
   ],
   providers: [ DishService,
   PromotionService,
