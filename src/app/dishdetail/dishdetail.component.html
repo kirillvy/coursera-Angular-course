@@ -25,10 +25,42 @@
             <h3>Comments</h3>
             <mat-list-item *ngFor="let item of dish.comments">
                 <p matLine>{{ item.comment }}</p>
-                <p matLine>{{ item.stars }} Stars</p>
+                <p matLine>{{ item.rating }} Stars</p>
                 <p matLine>-- {{ item.author }} {{ item.date | date:'mediumDate' }}</p>
             </mat-list-item>
+            <mat-list-item *ngIf="commentForm.valid && !commentForm.pristine">
+                <p matLine>{{commentForm.value.comment}}</p>
+                <p matLine>{{commentForm.value.rating}} Stars</p>
+                <p matLine>--{{commentForm.value.author}} </p>
+            </mat-list-item>
         </mat-list>
+
+        <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+            <p>
+                <mat-form-field class="full-width" dividerColor="{{formErrors.author ? 'warn':'primary'}}">
+                    <input matInput formControlName="author" placeholder="Your Name" type="text" required>
+                    <mat-hint>
+                        <span [hidden]="!(formErrors.author)">
+                                        {{formErrors.author}}
+                                    </span>
+                    </mat-hint>
+                </mat-form-field>
+
+                <span class="full-width">&nbsp;</span>
+                <mat-slider formControlName="rating" [disabled]="disabled" [invert]="invert" [max]="max" [min]="min" [step]="step" [thumb-label]="thumbLabel" [tick-interval]="tickInterval" [(ngModel)]="value" [vertical]="vertical">
+                </mat-slider>
+
+                <mat-form-field class="full-width" dividerColor="{{formErrors.comment ? 'warn':'primary'}}">
+                    <textarea matInput formControlName="comment" placeholder="Your Comment" rows="12" columns></textarea>
+                    <mat-hint>
+                        <span [hidden]="!(formErrors.comment)">
+                                {{formErrors.comment}}
+                            </span>
+                    </mat-hint>
+                </mat-form-field>
+            </p>
+            <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>
+        </form>
     </div>
 
 </div>
