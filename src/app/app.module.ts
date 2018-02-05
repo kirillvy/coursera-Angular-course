@@ -28,6 +28,8 @@ import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms'
+import { RestangularModule, Restangular} from 'ngx-restangular';
+import { RestangularConfigFactory } from './shared/restConfig';
 
 import { baseURL } from './shared/baseurl';
 
@@ -65,7 +67,8 @@ import { baseURL } from './shared/baseurl';
     MatSelectModule,
     MatProgressSpinnerModule,
     MatSliderModule,
-    HttpModule
+    HttpModule,
+    RestangularModule.forRoot(RestangularConfigFactory)
   ],
   providers: [ DishService,
   PromotionService,
