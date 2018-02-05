@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpModule } from '@angular/http';
 
 import { NgModule } from '@angular/core';
 import { MatToolbarModule, MatListModule, MatGridListModule, MatLineModule, MatCardModule, MatButtonModule, 
@@ -21,12 +22,14 @@ import { ContactComponent } from './contact/contact.component';
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms'
 
+import { baseURL } from './shared/baseurl';
 
 @NgModule({
   declarations: [
@@ -61,11 +64,14 @@ import { ReactiveFormsModule } from '@angular/forms'
     MatSlideToggleModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    MatSliderModule
+    MatSliderModule,
+    HttpModule
   ],
   providers: [ DishService,
   PromotionService,
-  LeaderService ],
+  LeaderService,
+  {provide: 'BaseURL', useValue: baseURL},
+  ProcessHTTPMsgService ],
   entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })
