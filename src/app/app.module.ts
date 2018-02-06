@@ -33,6 +33,7 @@ import { RestangularConfigFactory } from './shared/restConfig';
 
 import { baseURL } from './shared/baseurl';
 import { HighlightDirective } from './directives/highlight.directive';
+import { FeedbackService } from './services/feedback.service';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { HighlightDirective } from './directives/highlight.directive';
   providers: [ DishService,
   PromotionService,
   LeaderService,
+  FeedbackService,
   {provide: 'BaseURL', useValue: baseURL},
   ProcessHTTPMsgService ],
   entryComponents: [LoginComponent],

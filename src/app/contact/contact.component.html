@@ -36,60 +36,75 @@
 
     <div fxFlex fxFlexOffset="20px" class="form-size">
         <h3>Send us your Feedback</h3>
-        <p>{{ feedbackForm.value | json}} {{ feedbackForm.status | json }}</p>
-        <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
-            <p>
-                <mat-form-field class="half-width" dividerColor="{{formErrors.firstname ? 'warn':'primary'}}">
-                    <input matInput formControlName="firstname" placeholder="First Name" type="text" required>
-                    <mat-hint>
-                        <span [hidden]="!(formErrors.firstname)">
+        <div *ngIf="element1" [@expand]>
+            <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+                <p>
+                    <mat-form-field class="half-width" dividerColor="{{formErrors.firstname ? 'warn':'primary'}}">
+                        <input matInput formControlName="firstname" placeholder="First Name" type="text" required>
+                        <mat-hint>
+                            <span [hidden]="!(formErrors.firstname)">
                             {{formErrors.firstname}}
                         </span>
-                    </mat-hint>
-                </mat-form-field>
-                <mat-form-field class="half-width" dividerColor="{{formErrors.lastname ? 'warn':'primary'}}">
-                    <input matInput formControlName="lastname" placeholder="Last Name" type="text" required>
-                    <mat-hint>
-                        <span [hidden]="!(formErrors.lastname)">
+                        </mat-hint>
+                    </mat-form-field>
+                    <mat-form-field class="half-width" dividerColor="{{formErrors.lastname ? 'warn':'primary'}}">
+                        <input matInput formControlName="lastname" placeholder="Last Name" type="text" required>
+                        <mat-hint>
+                            <span [hidden]="!(formErrors.lastname)">
                             {{formErrors.lastname}}
                         </span>
-                    </mat-hint>
-                </mat-form-field>
-                <mat-form-field class="half-width" dividerColor="{{formErrors.telnum ? 'warn':'primary'}}">
-                    <input matInput formControlName="telnum" placeholder="Telephone Number" type="tel" pattern="[0-9]*" required>
-                    <mat-hint>
-                        <span [hidden]="!(formErrors.telnum)">
+                        </mat-hint>
+                    </mat-form-field>
+                    <mat-form-field class="half-width" dividerColor="{{formErrors.telnum ? 'warn':'primary'}}">
+                        <input matInput formControlName="telnum" placeholder="Telephone Number" type="tel" pattern="[0-9]*" required>
+                        <mat-hint>
+                            <span [hidden]="!(formErrors.telnum)">
                             {{formErrors.telnum}}
                         </span>
-                    </mat-hint>
-                </mat-form-field>
-                <mat-form-field class="half-width" dividerColor="{{formErrors.email ? 'warn':'primary'}}">
-                    <input matInput formControlName="email" placeholder="Email" type="email" required>
-                    <mat-hint>
-                        <span [hidden]="!(formErrors.email)">
+                        </mat-hint>
+                    </mat-form-field>
+                    <mat-form-field class="half-width" dividerColor="{{formErrors.email ? 'warn':'primary'}}">
+                        <input matInput formControlName="email" placeholder="Email" type="email" required>
+                        <mat-hint>
+                            <span [hidden]="!(formErrors.email)">
                             {{formErrors.email}}
                         </span>
-                    </mat-hint>
-                </mat-form-field>
-            </p>
-            <table class="form-size">
-                <td>
-                    <mat-slide-toggle formControlName="agree">May we contact you?</mat-slide-toggle>
-                </td>
-                <td>
-                    <mat-select placeholder="How?" formControlName="contacttype">
-                        <mat-option *ngFor="let ctype of contactType" [value]="ctype">
-                            {{ ctype }}
-                        </mat-option>
-                    </mat-select>
-                </td>
-            </table>
-            <p>
-                <mat-form-field class="full-width">
-                    <textarea matInput formControlName="message" placeholder="Your Feedback" rows="12" columns></textarea>
-                </mat-form-field>
-            </p>
-            <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">Submit</button>
-        </form>
+                        </mat-hint>
+                    </mat-form-field>
+                </p>
+                <table class="form-size">
+                    <td>
+                        <mat-slide-toggle formControlName="agree">May we contact you?</mat-slide-toggle>
+                    </td>
+                    <td>
+                        <mat-select placeholder="How?" formControlName="contacttype">
+                            <mat-option *ngFor="let ctype of contactType" [value]="ctype">
+                                {{ ctype }}
+                            </mat-option>
+                        </mat-select>
+                    </td>
+                </table>
+                <p>
+                    <mat-form-field class="full-width">
+                        <textarea matInput formControlName="message" placeholder="Your Feedback" rows="12" columns></textarea>
+                    </mat-form-field>
+                </p>
+                <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">Submit</button>
+            </form>
+        </div>
+        <div *ngIf="element2" [@expand]>
+            <mat-spinner></mat-spinner>
+
+        </div>
+        <div *ngIf="element3" [@expand]>
+            <h2>Your submission</h2>
+            <p>First Name: {{feedbackcopy? feedbackcopy.firstname : '?'}}</p>
+            <p>Last Name: {{feedbackcopy? feedbackcopy.lastname : '?'}}</p>
+            <p>Tel. Num: {{feedbackcopy? feedbackcopy.telnum : '?'}}</p>
+            <p>Email: {{feedbackcopy? feedbackcopy.email : '?'}}</p>
+            <p>Contact you?: {{feedbackcopy? feedbackcopy.agree : '?'}}</p>
+            <p>How?: {{feedbackcopy? feedbackcopy.contacttype : '?'}}</p>
+            <p>Feedback: {{feedbackcopy? feedbackcopy.message : '?'}}</p>
+        </div>
     </div>
 </div>
